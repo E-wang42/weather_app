@@ -1,13 +1,15 @@
 import { useState, useEffect } from "react";
 import Input from "./components/Input";
-import TEST from "./components/TEST";
+import coldBg from "./assets/cold2.jpg";
+import warmBg from "./assets/warm2.jpg";
 
 function App() {
+  const dynamicBg = { backgroundImage: `url(${coldBg})` };
+
   return (
-    <main className="App">
+    <div className="App" style={dynamicBg}>
       <Input />
-      <TEST />
-    </main>
+    </div>
   );
 }
 
