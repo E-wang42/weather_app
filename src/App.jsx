@@ -22,7 +22,7 @@ function App() {
   return (
     <div className="app" style={dynamicBg}>
       <div className="overlay">
-        <div className="mt-8 w-3/4">
+        <div className="mt-8 w-3/4 flex-row justify-center gap-y-6">
           <div className="section section__inputs">
             <input
               className="indent-4"
@@ -30,7 +30,7 @@ function App() {
               type="text"
               placeholder="Enter City"
             />
-            <button>°F</button>
+            <button className="degrees">°F</button>
           </div>
 
           <div className="section section__temp">

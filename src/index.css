@@ -58,6 +58,7 @@ main {
 .section {
   background-color: var(--section-overlay);
   border-radius: 0.5rem;
+  padding: 2rem 5rem;
 }
 
 .section__temp {
@@ -65,4 +66,44 @@ main {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+.section__inputs {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.section__inputs > input {
+  height: 2.5rem;
+  border: none;
+  border-radius: 0.5rem;
+  color: black;
+}
+
+.icon {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  height: 6rem;
+}
+
+.icon > h3 {
+  font-size: 1.2rem;
+}
+
+.temp > h1 {
+  font-size: 2.5rem;
+  font-weight: 600;
+}
+
+.degrees {
+  font-size: 1.8rem;
+  background-color: white;
+  color: black;
+  font-weight: bold;
+  width: 3.2rem;
+  text-align: center;
+  border-radius: 0.5rem;
 }
