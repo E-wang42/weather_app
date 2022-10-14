@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import coldBg from "./assets/cold2.jpg";
 import warmBg from "./assets/warm2.jpg";
 import axios from "axios";
+import Desc from "./components/Desc";
 
 function App() {
   const [weather, setWeather] = useState({});
@@ -32,7 +33,6 @@ function App() {
             />
             <button className="degrees">°F</button>
           </div>
-
           <div className="section section__temp">
             <div className="icon">
               <h3>London, GB</h3>
@@ -48,8 +48,8 @@ function App() {
               <h1>34 °C</h1>
             </div>
           </div>
-
           {/* {bottom desc} */}
+          <Desc />
         </div>
       </div>
     </div>
