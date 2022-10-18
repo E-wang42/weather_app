@@ -23,7 +23,7 @@ function App() {
   return (
     <div className="app" style={dynamicBg}>
       <div className="overlay">
-        <div className="mt-8 w-3/4 flex-row justify-center gap-y-6">
+        <div className="container">
           <div className="section section__inputs">
             <input
               className="indent-4"
