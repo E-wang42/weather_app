@@ -2,6 +2,7 @@ import React from "react";
 import { FaArrowUp, FaArrowDown, FaWind } from "react-icons/fa";
 import { MdCompress, MdOutlineWaterDrop } from "react-icons/md";
 import { BiHappy } from "react-icons/bi";
+import "./Desc.css";
 
 const Desc = () => {
   return (
@@ -9,7 +10,9 @@ const Desc = () => {
       <div className="card">
         <div className="desc__card--icon">
           <FaArrowDown />
+          <small>min</small>
         </div>
+        <h2>32 °C</h2>
       </div>
     </div>
   );
