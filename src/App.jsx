@@ -9,16 +9,7 @@ function App() {
 
   const dynamicBg = { backgroundImage: `url(${coldBg})` };
 
-  useEffect(() => {
-    async function getWeather() {
-      const res = await fetch(
-        `api.openweathermap.org/data/2.5/forecast?q=${"dallas"}&appid=${"84bc8ff0a28c640cbe8ca1ffe5b2b532"}`
-      );
-      const data = await res.json();
-      setWeather(data);
-    }
-    getWeather();
-  }, []);
+  useEffect(() => {}, []);
 
   return (
     <div className="app" style={dynamicBg}>
@@ -45,7 +36,7 @@ function App() {
             </div>
 
             <div className="temp">
-              <h1>34 °C</h1>
+              <h1>34 °</h1>
             </div>
           </div>
           {/* {bottom desc} */}
