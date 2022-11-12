@@ -1,32 +1,30 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useTransition } from "react";
 import coldBg from "./assets/cold2.jpg";
 import warmBg from "./assets/warm2.jpg";
 import Desc from "./components/Desc";
 
 function App() {
+  const [input, setInput] = useState("Dallas");
   const [weather, setWeather] = useState([]);
+  const [units, setUnits] = useState("metric");
+  const [bg, setBg] = useState(warmBg);
 
   const dynamicBg = { backgroundImage: `url(${coldBg})` };
 
-  useEffect(() => {
-    fetch(
-      "https://api.openweathermap.org/data/2.5/weather?q=dallas&appid=84bc8ff0a28c640cbe8ca1ffe5b2b532"
-    )
-      .then((res) => res.json())
-      .then((data) => setWeather([data]))
-      .catch((err) => console.error(err));
-  }, []);
+  // useEffect(() => {
+  //   fetch(
+  //     `https://api.openweathermap.org/data/2.5/weather?q=${"dallas"}&appid=84bc8ff0a28c640cbe8ca1ffe5b2b532`
+  //   )
+  //     .then((res) => res.json())
+  //     .then((data) => setWeather(data))
+  //     .catch((err) => console.error(err));
+  // }, []);
 
-  const renderWeather = (weather) => {
-    <div className="renderedWeather">
-      {weather.map(current)=> {
-      return <h2 key={current.id}>{current.weather.description}</h2>
-    }}</div>
-  }
+  weather.main.temp;
 
-  const currentWeather = weather.map((current) => {
-    return <h2 key={current.id}>{current.weather.x}</h2>;
-  });
+  const getFahrenheit = () => {
+    const fahren = Math.round(1.8 * ({} - 273) + 32);
+  };
 
   return (
     <div className="app" style={dynamicBg}>
@@ -34,10 +32,10 @@ function App() {
         <div className="container">
           <div className="section section__inputs">
             <input
-              className="indent-4"
+              className="focus:outline-none indent-4"
               name="city"
               type="text"
-              placeholder="Enter City"
+              placeholder="Enter City..."
             />
             <button className="degrees">°F</button>
           </div>
