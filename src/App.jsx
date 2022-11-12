@@ -1,29 +1,28 @@
-import { useState, useEffect, useTransition } from "react";
+import { useState, useEffect } from "react";
+import { FaWindowMinimize } from "react-icons/fa";
 import coldBg from "./assets/cold2.jpg";
 import warmBg from "./assets/warm2.jpg";
 import Desc from "./components/Desc";
 
 function App() {
   const [input, setInput] = useState("Dallas");
-  const [weather, setWeather] = useState([]);
+  const [weather, setWeather] = useState(null);
   const [units, setUnits] = useState("metric");
   const [bg, setBg] = useState(warmBg);
 
   const dynamicBg = { backgroundImage: `url(${coldBg})` };
 
-  // useEffect(() => {
-  //   fetch(
-  //     `https://api.openweathermap.org/data/2.5/weather?q=${"dallas"}&appid=84bc8ff0a28c640cbe8ca1ffe5b2b532`
-  //   )
-  //     .then((res) => res.json())
-  //     .then((data) => setWeather(data))
-  //     .catch((err) => console.error(err));
-  // }, []);
+  useEffect(() => {
+    fetch(
+      `https://api.openweathermap.org/data/2.5/weather?q=${"dallas"}&appid=84bc8ff0a28c640cbe8ca1ffe5b2b532`
+    )
+      .then((res) => res.json())
+      .then((data) => setWeather(data))
+      .catch((err) => console.error(err));
+  }, []);
 
-  weather.main.temp;
-
-  const getFahrenheit = () => {
-    const fahren = Math.round(1.8 * ({} - 273) + 32);
+  const getFahrenheit = (temp) => {
+    return Math.round(1.8 * (temp - 273) + 32);
   };
 
   return (
@@ -36,6 +35,7 @@ function App() {
               name="city"
               type="text"
               placeholder="Enter City..."
+              onChange={""}
             />
             <button className="degrees">°F</button>
           </div>
@@ -51,7 +51,7 @@ function App() {
             </div>
 
             <div className="temp">
-              <h1>34 °</h1>
+              <h1>{getFahrenheit(weather.main.temp)}</h1>
             </div>
           </div>
           {/* {bottom desc} */}
